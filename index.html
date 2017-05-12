@@ -54,7 +54,7 @@
           </ul>
         </section>
         <section>
-          <h3>Time to Dive In and Learn</h3>
+          <h3>Attempt #1 to Learn RN</h3>
           <p class="fragment">A friend was working on a React Native application
           and I offered to help in my spare time.</p>
           <pre class="fragment">
@@ -67,16 +67,74 @@
           </pre>
         </section>
         <section>
-          <h3>BOOM! I'm an iOS developer!</h3>
-          <img
-          src="http://myapptemplates.com/wp-content/uploads/2014/08/RealEstate-App-Template-iPhone-iOS7-3-Phones1.jpg"
+          <h3>I'm an iOS and Android developer!!</h3>
+          <img class="fragment" src="http://myapptemplates.com/wp-content/uploads/2014/08/RealEstate-App-Template-iPhone-iOS7-3-Phones1.jpg"
           />
         </section>
         <section>
-          <h3></h3>
-          <img
-          src="http://myapptemplates.com/wp-content/uploads/2014/08/RealEstate-App-Template-iPhone-iOS7-3-Phones1.jpg"
+          <h3>Quickly Changed To</h3>
+          <img class="fragment" width="600" src="images/enthusiasm.png" />
+        </section>
+        <section>
+          <h3>Post Failure Retrospective</h3>
+        </section>
+        <section>
+          <pre style="font-size: 12px; margin: 0; width: 100%;">
+            <code>
+import React, { Component, PropTypes } from 'react';
+import { Image, ListView, Text, View, } from 'react-native';
+import { connect } from 'react-redux';
+import * as episodeActions from '../redux/modules/episodes';
+
+import EpisodeCell from '../components/EpisodeCell';
+import { container, logo } from '../styles';
+
+const rowHasChanged = (r1, r2) => r1 !== r2;
+const dataSource = new ListView.DataSource({rowHasChanged})
+
+class EpisodeList extends Component {
+  static navigationOptions = {
+    header: (state, defaultHeader) => ({
+      ...defaultHeader,
+      title: (
+        <View style={logo.logoContainer}>
+          <Image
+            style={logo.logo}
+            source={require('../images/upcase-logo.png')}
           />
+        </View>
+      ),
+    }),
+  };
+
+  componentDidMount() {
+    this.props.getEpisodes();
+  }
+
+  render() {
+    const { episodes } = this.props;
+
+    return (
+      <View style={container.container}>
+        <ListView
+          dataSource={dataSource.cloneWithRows(episodes)}
+          enableEmptySections={true}
+          renderRow={(rowData) => <EpisodeCell episode={rowData} navigation={this.props.navigation} />}
+        />
+      </View>
+    )
+  }
+}
+
+export default connect(
+  ({episodes}) => episodes,
+  (dispatch) => ({
+    getEpisodes: () => dispatch(episodeActions.getEpisodes),
+  })
+)(EpisodeList);
+
+            </code>
+          </pre>
         </section>
       </div>
     </div>
