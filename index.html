@@ -168,8 +168,10 @@ export default connect(
               }
             }
 
-            # life cycle hooks
+            # life cycle hooks and props
             componentDidMount() {
+              this.props.getEpisodes();
+            }
           </code>
           </pre>
         </section>
