@@ -136,6 +136,80 @@ export default connect(
             </code>
           </pre>
         </section>
+        <section>
+          <h3>I Didn't Know es6</h3>
+          <pre class="fragment">
+          <code>
+            # importing and destructuring
+            import React, { Component, PropTypes } from 'react';
+            import * as episodeActions from '../redux/modules/episodes';
+
+            # arrow function
+            const rowHasChanged = (r1, r2) => r1 !== r2;
+
+            # spread syntax
+            ...defaultHeader,
+
+            # static methods
+            static navigationOptions = { ... }
+          </code>
+          </pre>
+        </section>
+        <section>
+          <h3>I Didn't Know React</h3>
+          <pre class="fragment">
+          <code>
+            # components
+            class EpisodeList extends Component {
+              render() {
+                 STUFF
+              }
+            }
+
+            # life cycle hooks
+            componentDidMount() {
+          </code>
+          </pre>
+        </section>
+        <section>
+          <h3>I Didn't Know React Native</h3>
+          <pre class="fragment">
+          <code>
+            # Native Components
+            const dataSource = new ListView.DataSource({rowHasChanged})
+
+            # react-navigation
+            const App = StackNavigator({
+              List: { screen: EpisodeList },
+              Show: { screen: EpisodeShow },
+            }, stackConfig);
+          </code>
+          </pre>
+        </section>
+        <section>
+          <h3>I Didn't Know Redux</h3>
+          <pre class="fragment">
+          <code>
+            # connecting to store
+            export default connect(({episodes}) => episodes)(EpisodeList);
+
+            # actions & reducers
+            export default function reducer(state = initialState, action) {
+              switch (action.type) {
+                case UPDATE:
+                  return { ...state, episodes: action.episodes };
+                default:
+                  return state;
+                }
+            };
+          </code>
+          </pre>
+        </section>
+        <section>
+          <h3>I Didn't Know How to Debug</h3>
+          <img class="fragment" width="600" src="images/debugger.png" />
+
+
       </div>
     </div>
 
