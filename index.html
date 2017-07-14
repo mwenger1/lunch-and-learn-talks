@@ -33,212 +33,59 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h2>A failed attempt at learning </h2>
-          <img style="border: none;" src="https://res.cloudinary.com/hdsqazxtw/image/upload/v1489498900/vpipktdu08t9jvxxl30v.png" />
+          <h2>Sounding Board to Your Next Big Idea</h2>
+          <img style="border: none;"
+          src="https://secure.meetupstatic.com/photos/event/a/3/e/a/highres_462821962.jpeg" />
 
         </section>
         <section>
-          <h2>Obligatory Disclaimer</h2>
-          <p class="fragment">Everyone learns differently... this rambling of slides is just takeaways from
-          my personal experience.</p>
+          <h3>House Cleaning Items</h3>
+          <p>Bathrooms in the back</p>
+          <p>Share your email to get invite to Slack Channel</p>
+          <p>Help yourself to food/drinks</p>
+          <p>Thanks to thoughtbot for sponsoring tonight</p>
         </section>
         <section>
-          <h3>I Really Wanted to learn RN</h3>
-          <p class="fragment">The platform promises a lot:</p>
+          <h3>Who has an idea or a project?</h3>
+          <h3 class="fragment">What's holding you back?</h3>
+          <p class="fragment">The goal of this meetup is to help free you from those
+          restraints.</p>
+        </section>
+        <section>
+          <h3>Weight Watchers for your Idea</h3>
+          <li class="fragment">Advice tailored to you</li>
+          <li class="fragment">Group accountability</li>
+          <li class="fragment">Share best practices</li>
+          <li class="fragment">Motivated to see you succeed</li>
+        </section>
+        <section>
+          <h3>Listening to an Idea</h3>
           <ul>
-            <li class="fragment">Build mobile applications that feel more "native"
-              than other platforms (Phonegap, Titaninum)</li>
-            <li class="fragment">85% code reuse while shipping to Google Play
-              and iOS app stores</li>
-            <li class="fragment">It's Javascript. Don't need to learn a language</li>
+            <li>Offer constructive honesty
+            <li>Help them succeed.
+              <ul>
+                <li>Give Advice
+                <li>Make Connections
+                <li>Point out competitors
+              </ul>
+              <li>Support them beyond today<br>(each idea = slack channel)
           </ul>
         </section>
         <section>
-          <h3>Attempt #1 to Learn RN</h3>
+          <h3>Sharing an Idea</h3>
+          <li>Stay within the timebox
+          <li>What problem are you addressing?
+          <li>What is your solution?
+          <li>How have/will you validate?
+          <li>What progress have you made?
+          <li>What do you hope to accomplish in the next month?
+          <li class="fragment">Meet every 3 weeks <br> Come back & share updates!</li>
         </section>
         <section>
-          <p>A friend was working on a React Native application
-          and I offered to help in my spare time.</p>
-          <pre class="fragment">
-          <code>
-            git clone [FRIENDS-REPO]
-            npm install -g react-native-cli
-            npm install
-            react-native run-ios
-          </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I'm an iOS and Android developer!!</h3>
-          <img src="http://myapptemplates.com/wp-content/uploads/2014/08/RealEstate-App-Template-iPhone-iOS7-3-Phones1.jpg"
-          />
-        </section>
-        <section>
-          <h3>Quickly Changed To</h3>
-          <img class="fragment" width="600" src="images/enthusiasm.png" />
-        </section>
-        <section>
-          <h3>Reflecting on the Failure</h3>
-        </section>
-        <section>
-          <pre style="font-size: 12px; margin: 0; width: 100%;">
-            <code>
-import React, { Component, PropTypes } from 'react';
-import { Image, ListView, Text, View, } from 'react-native';
-import { connect } from 'react-redux';
-import * as episodeActions from '../redux/modules/episodes';
-
-import EpisodeCell from '../components/EpisodeCell';
-import { container, logo } from '../styles';
-
-const rowHasChanged = (r1, r2) => r1 !== r2;
-const dataSource = new ListView.DataSource({rowHasChanged})
-
-class EpisodeList extends Component {
-  static navigationOptions = {
-    header: (state, defaultHeader) => ({
-      ...defaultHeader,
-      title: (
-        <View style={logo.logoContainer}>
-          <Image
-            style={logo.logo}
-            source={require('../images/upcase-logo.png')}
-          />
-        </View>
-      ),
-    }),
-  };
-
-  componentDidMount() {
-    this.props.getEpisodes();
-  }
-
-  render() {
-    const { episodes } = this.props;
-
-    return (
-      <View style={container.container}>
-        <ListView
-          dataSource={dataSource.cloneWithRows(episodes)}
-          enableEmptySections={true}
-          renderRow={(rowData) => <EpisodeCell episode={rowData} navigation={this.props.navigation} />}
-        />
-      </View>
-    )
-  }
-}
-
-export default connect(
-  ({episodes}) => episodes,
-  (dispatch) => ({
-    getEpisodes: () => dispatch(episodeActions.getEpisodes),
-  })
-)(EpisodeList);
-
-            </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I Didn't Know es6</h3>
-          <pre class="fragment">
-          <code>
-            # importing and destructuring
-            import React, { Component, PropTypes } from 'react';
-            import * as episodeActions from '../redux/modules/episodes';
-
-            # arrow function
-            const rowHasChanged = (r1, r2) => r1 !== r2;
-
-            # spread syntax
-            ...defaultHeader,
-
-            # static methods
-            static navigationOptions = { ... }
-          </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I Didn't Know React</h3>
-          <pre class="fragment">
-          <code>
-            # components
-            class EpisodeList extends Component {
-              render() {
-                 STUFF
-              }
-            }
-
-            # life cycle hooks and props
-            componentDidMount() {
-              this.props.getEpisodes();
-            }
-          </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I Didn't Know React Native</h3>
-          <pre class="fragment">
-          <code>
-            # Native Components
-            const dataSource = new ListView.DataSource({rowHasChanged})
-
-            # react-navigation
-            const App = StackNavigator({
-              List: { screen: EpisodeList },
-              Show: { screen: EpisodeShow },
-            }, stackConfig);
-          </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I Didn't Know Redux</h3>
-          <pre class="fragment">
-          <code>
-            # connecting to store
-            export default connect(({episodes}) => episodes)(EpisodeList);
-
-            # actions & reducers
-            export default function reducer(state = initialState, action) {
-              switch (action.type) {
-                case UPDATE:
-                  return { ...state, episodes: action.episodes };
-                default:
-                  return state;
-                }
-            };
-          </code>
-          </pre>
-        </section>
-        <section>
-          <h3>I Didn't Know How to Debug</h3>
-          <img class="fragment" width="600" src="images/debugger.png" />
-        </section>
-        <section>
-          <h3>Attempt #2 to Learn RN</h3>
-        </section>
-        <section>
-          <h3>Goals</h3>
-          <ul class="fragment">
-            <li>Identify knowledge gaps</li>
-            <li>Play with technologies in isolation</li>
-            <li>Find mentorship</li>
-          </ul>
-        </section>
-        <section>
-          <h3>Knowledge Gaps</h3>
-          <img src="images/dash.png" />
-        </section>
-        <section>
-          <h3>Play with Technologies in Isolation</h3>
-          <img src="images/babel-node.png" />
-        </section>
-        <section>
-          <h3>Find Mentorship</h3>
-          <img src="images/for-beginners.png" />
-        </section>
-        <section>
-          <h3>Attempt #2 == Success?</h3>
-          <p class="fragment">To be continued...</p>
+          <h3>Closing Thoughts</h3>
+          <p>Our Next Meetup is: Tuesday August 15</p>
+          <p>Share our group with entrepreneurial friends</p>
+          <p>Join Slack Group</p>
         </section>
       </div>
     </div>
